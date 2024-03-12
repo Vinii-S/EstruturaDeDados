@@ -20,24 +20,21 @@ public class CadastrarConta {
     }
 
     public void procurarConta(String procura){
-        boolean achou=false;
        String respN = "";
        Double respV = 0.0;
         for (int i = 0; i<c.length; i++) {
            if(c[i].getNome().equalsIgnoreCase(procura)){
-               achou=true;
-           }if (achou) {
             respN = c[i].getNome();
             respV = c[i].getValor();
 
             System.out.println("Imprimindo dados da conta:");
             System.out.println(respN);
             System.out.println(respV);
-           }                        
+           }else{
+            System.out.println("A conta nao foi encontrada");
+           }                     
         }
-        if(achou=false){
-            System.out.println("A conta não foi encontrada!");
-        }
+        
         
     }
     
