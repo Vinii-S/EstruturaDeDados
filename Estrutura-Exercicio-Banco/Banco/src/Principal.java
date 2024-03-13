@@ -13,9 +13,26 @@ public class Principal {
         cad.adicionarConta(conta2);
         cad.adicionarConta(conta3);
 
+        cad.listarConta();
         System.out.println("Informe o nome da conta que deseja saber: ");
         busca=input.nextLine();
         cad.procurarConta(busca);
-       // cad.listarConta();
+
+        String novaConta="";
+        double saldo=0.0;
+        int posicao;
+        System.out.println("Insira a Posição que deseja verificar se esta ocupada: ");
+        posicao=input.nextInt();
+        input.nextLine();
+        
+        System.out.println("Insira o  nome da Nova Conta:");
+        novaConta=input.nextLine();
+        
+        
+        System.out.println("Insira o valor dessa conta: ");
+        saldo=input.nextDouble();
+
+        cad.inserirPosicao(posicao,novaConta,saldo);
+        cad.listarConta();
     }
 }

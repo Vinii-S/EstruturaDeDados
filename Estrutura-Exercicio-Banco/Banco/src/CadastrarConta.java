@@ -1,5 +1,6 @@
 public class CadastrarConta {
-    private Conta[] c = new Conta[3];
+    int capacidade = 3;
+    private Conta[] c = new Conta[capacidade];
     int cont = 0;
     public void adicionarConta(Conta com){
         if(cont<c.length){
@@ -22,20 +23,37 @@ public class CadastrarConta {
     public void procurarConta(String procura){
        String respN = "";
        Double respV = 0.0;
+       boolean achou = false;
         for (int i = 0; i<c.length; i++) {
            if(c[i].getNome().equalsIgnoreCase(procura)){
             respN = c[i].getNome();
             respV = c[i].getValor();
-
+            achou = true;
             System.out.println("Imprimindo dados da conta:");
             System.out.println(respN);
-            System.out.println(respV);
-           }else{
-            System.out.println("A conta nao foi encontrada");
-           }                     
+            System.out.println("Saldo: R$" + respV);
+           }                   
         }
-        
+        if (achou==false) {
+            System.out.println("A conta nao foi encontrada");
+           } 
         
     }
-    
+    public void inserirPosicao(int posi, String nomeConta, double saldo){
+        Conta novaC = new Conta();
+        novaC.setNome(nomeConta);
+        novaC.setValor(saldo);
+        for(int i =0; i<c.length;i++){
+            if(c[posi]==null){
+                c[posi] =  novaC;
+            }else if(c[posi]!=null ){
+                capacidade += 1;
+               
+                c[posi]=novaC;
+                
+            }
+        }
+    }
+
+
 }
