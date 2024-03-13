@@ -31,8 +31,12 @@ public class Principal {
         
         System.out.println("Insira o valor dessa conta: ");
         saldo=input.nextDouble();
+        Conta conta4 = new Conta(novaConta, saldo);
 
-        cad.inserirPosicao(posicao,novaConta,saldo);
+        cad.inserirPosicao(posicao,conta4);
+        System.out.println();
+
         cad.listarConta();
+        input.close();
     }
 }

@@ -39,20 +39,23 @@ public class CadastrarConta {
            } 
         
     }
-    public void inserirPosicao(int posi, String nomeConta, double saldo){
-        Conta novaC = new Conta();
-        novaC.setNome(nomeConta);
-        novaC.setValor(saldo);
-        for(int i =0; i<c.length;i++){
-            if(c[posi]==null){
-                c[posi] =  novaC;
-            }else if(c[posi]!=null ){
-                capacidade += 1;
-               
-                c[posi]=novaC;
-                
-            }
+    public void inserirPosicao(int posi, Conta contaNova){
+        if(posi<0 || posi>capacidade){
+            System.out.println("Posição invalida");
+            return;
         }
+        Conta[] novaC = new Conta[capacidade+1];
+        for(int j =0; j<posi; j++){
+            novaC[j] = c[j];
+        }   
+        novaC[posi] = contaNova;
+        
+        for(int i=posi;i<capacidade;i++){
+            novaC[i+1] = c[i];
+        }
+        c = novaC;
+        capacidade++;
+        
     }
 
 
