@@ -58,5 +58,14 @@ public class CadastrarConta {
         
     }
 
+    public void removerPosicao(int posi){
+
+        for(int i = posi;i<capacidade-1;i++){
+        c[i] = c[i+1];
+        }
+        c[capacidade -1] = null;
+        capacidade--;
+        
+    }
 
 }
