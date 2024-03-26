@@ -37,11 +37,22 @@ public class Principal {
         System.out.println();
 
         cad.listarConta();
-        System.out.println("Informe a posicao da conta que vc quer remover");
+
+        input.nextLine();
+        System.out.println("Insira o  nome da Nova Conta:");
+        novaConta = input.nextLine();
+        System.out.println("Insira o valor dessa conta: ");
+        saldo=input.nextDouble();
+        Conta conta5 = new Conta(novaConta,saldo);
+        cad.adicionarConta(conta5);
+
+        cad.listarConta();
+        /*  System.out.println("Informe a posicao da conta que vc quer remover");
         posicao=input.nextInt();    
         cad.removerPosicao(posicao);
         cad.listarConta();
         
-        input.close();
+        input.close();*/
+
     }
 }
