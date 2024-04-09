@@ -5,11 +5,11 @@ public class CadastrarConta {
 
     public void adicionarConta(Conta com){
         aumentaVetor();
-        if(cont<c.length){
+        if(cont<capacidade){
             c[cont] =  com;
            // cont++;
         }
-        if(cont==c.length){
+        if(cont==capacidade){
            
             c[cont] = com;
             //cont++;
@@ -42,6 +42,7 @@ public class CadastrarConta {
             System.out.println("Imprimindo dados da conta:");
             System.out.println(respN);
             System.out.println("Saldo: R$" + respV);
+            return;
            }                   
         }
         if (achou==false) {
@@ -89,7 +90,7 @@ public class CadastrarConta {
         c = novVetor;
         
     }
-    private boolean verPosi(int posi){
+   /*  private boolean verPosi(int posi){
         return posi>=0 && posi <= this.capacidade;
-    }
+    }*/
 }
