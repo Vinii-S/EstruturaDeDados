@@ -19,6 +19,8 @@ public class RegraNegocioFuncionario {
             System.out.println("CPF: " + f.getCpf());
             System.out.println("Telefone: " + f.getTelefone());
             System.out.println("Empresa: " + f.getEmpresa().getNome());
+            System.out.println("CNPJ da empresa: " + f.getEmpresa().getCnpj());
+            System.out.println("Telefone da empresa: " + f.getEmpresa().getTelefone());
             System.out.println();
         }
     }

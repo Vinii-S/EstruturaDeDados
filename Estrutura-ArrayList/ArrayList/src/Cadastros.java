@@ -25,6 +25,8 @@ public class Cadastros {
 
         RegraNegocioEmpresa rne = new RegraNegocioEmpresa();
         rne.setEmpresas(empresas);
+
+        
         System.out.println("Dados das empresas: \n");
         rne.listarEmpresa();
         System.out.println( "\n\nDados dos funcionários: \n");
