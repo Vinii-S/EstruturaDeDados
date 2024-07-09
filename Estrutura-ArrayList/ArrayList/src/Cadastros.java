@@ -15,18 +15,18 @@ public class Cadastros {
         empresas.add(e1);
         empresas.add(e2);
 
-        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
-        funcionarios.add(f1);
-        funcionarios.add(f2);
-        funcionarios.add(f3);
+
+        
 
         RegraNegocioFuncionario rnf = new RegraNegocioFuncionario();
-        rnf.setFuncionarios(funcionarios);
+        rnf.adicionarFuncionario(f1);
+        rnf.adicionarFuncionario(f2);
+        rnf.adicionarFuncionario(f3);
 
         RegraNegocioEmpresa rne = new RegraNegocioEmpresa();
         rne.setEmpresas(empresas);
 
-        
+
         System.out.println("Dados das empresas: \n");
         rne.listarEmpresa();
         System.out.println( "\n\nDados dos funcionários: \n");

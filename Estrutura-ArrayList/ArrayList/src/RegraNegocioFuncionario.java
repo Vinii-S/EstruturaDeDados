@@ -12,6 +12,12 @@ public class RegraNegocioFuncionario {
         this.funcionarios = funcionarios;
     }
 
+    
+    public void adicionarFuncionario(Funcionario funcionario) {
+        funcionarios.add(funcionario);
+    }
+
+
     public void listarFuncionario(){
         for (Funcionario f : funcionarios) {
             System.out.println("Nome: " + f.getNome());
