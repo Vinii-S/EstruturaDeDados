@@ -14,6 +14,9 @@ public class RegraNegocioEmpresa {
         return empresas;
         
     }
+    public void adicionarEmpresa(Empresa empresa) {
+        empresas.add(empresa);
+    }
 
     public List<Empresa> getEmpresas() {
         return empresas;

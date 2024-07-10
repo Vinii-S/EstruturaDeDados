@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 
 public class Cadastros {
     public static void main(String[] args) {
@@ -10,21 +8,14 @@ public class Cadastros {
         Funcionario f2 = new Funcionario("João","154.775.555-09","5554-98","(75)94445-9988",e1);
         Funcionario f3 = new Funcionario("Luiza","123.123.123-12","1212155-98","(81)98874-0012",e2);
         
-
-        List<Empresa> empresas = new ArrayList<Empresa>();
-        empresas.add(e1);
-        empresas.add(e2);
-
-
+        RegraNegocioEmpresa rne = new RegraNegocioEmpresa ();
+        rne.adicionarEmpresa(e1);
+        rne.adicionarEmpresa(e2);
         
-
         RegraNegocioFuncionario rnf = new RegraNegocioFuncionario();
         rnf.adicionarFuncionario(f1);
         rnf.adicionarFuncionario(f2);
         rnf.adicionarFuncionario(f3);
-
-        RegraNegocioEmpresa rne = new RegraNegocioEmpresa();
-        rne.setEmpresas(empresas);
 
 
         System.out.println("Dados das empresas: \n");
