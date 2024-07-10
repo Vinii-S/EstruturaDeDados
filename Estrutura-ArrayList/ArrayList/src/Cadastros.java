@@ -17,10 +17,9 @@ public class Cadastros {
         rnf.adicionarFuncionario(f2);
         rnf.adicionarFuncionario(f3);
 
-
         System.out.println("Dados das empresas: \n");
         rne.listarEmpresa();
-        System.out.println( "\n\nDados dos funcionários: \n");
+        System.out.println( "\nDados dos funcionários: \n");
         rnf.listarFuncionario();
 
         
