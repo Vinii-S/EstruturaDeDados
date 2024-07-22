@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Cadastro<T> {
    // private Object[] contas = new Object[5];
-    private int tamanho = 0;
+    //private int tamanho = 0;
 
     private List<T> contas1 = new ArrayList<T>();
 
