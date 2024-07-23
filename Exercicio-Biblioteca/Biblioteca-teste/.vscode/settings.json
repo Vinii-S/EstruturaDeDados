@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Vini\\Documents\\GitHub\\EstruturaDeDados\\bibliotecaarray\\bibliotecaarray.jar",
+        "c:\\Users\\202010070026\\Documents\\GitHub\\EstruturaDeDados\\bibliotecaarray\\bibliotecaarray.jar"
+    ]
+}
