@@ -46,17 +46,50 @@ public class lista {
         }
     }
 
+    public void removerInicio(){
+        if(total == 0){
+            System.out.println("Sem elmentos para remover");
+            return;
+        }
+
+        celula auxiliar = this.cabeca;
+        this.cabeca = auxiliar.proxima;
+
+        if(total == 1){
+            cauda=null;
+        }
+        total--;
+
+
+    }
+
+    public void removerFinal(){
+        if(total == 0){
+            System.out.println("Sem elmentos para remover");
+            return;
+        }
+
+        celula aux = this.cabeca;
+            for (int i = 0; i < total - 1; i++) {
+                aux = aux.proxima;             
+            }
+            aux.setProxima(null);
+            cauda = aux;
+            total--;
+    }
+
     public void removerPosicao(int posicao) {
         if (posicao < 0 || posicao >= total) {
             System.out.println("Posição inválida");
         }
-    
         if (posicao == 0) {
             cabeca = cabeca.proxima;
             if (total == 1) {
                 cauda = null;
             }
-        } else if (posicao == total - 1) {
+        }
+        
+        else if (posicao == total - 1) {
             celula aux = cabeca;
             for (int i = 0; i < posicao - 1; i++) {
                 aux = aux.proxima;
@@ -75,8 +108,9 @@ public class lista {
     
     public void imprimir(){
         celula aux = this.cabeca;
+        System.out.println("----------");
         for(int i =0; i<total;i++){
-            System.out.println();
+            
             System.out.println(aux.getElemento());
             aux = aux.proxima;
         }
