@@ -32,5 +32,6 @@ public class main {
         //primeira.removerInicio();
         primeira.removerFinal();
         primeira.imprimir();
+            
     }
 }
