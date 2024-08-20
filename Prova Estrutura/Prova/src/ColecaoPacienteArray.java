@@ -46,6 +46,7 @@ public class ColecaoPacienteArray {
             System.out.println("Posição invalida");
             return;
     }
+    
     Paciente[] novoPaciente =  new Paciente[tamanho+1];
     
     for(int i=0;i<posi;i++){

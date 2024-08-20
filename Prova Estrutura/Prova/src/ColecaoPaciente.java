@@ -7,6 +7,7 @@ public class ColecaoPaciente {
     public void cadastrarPaciente(Paciente paci){
         pacientes.add(paci);  
     }
+    
     public void procurarPaciente(int posi){
        
     if(posi >= 0 && posi < pacientes.size()){
