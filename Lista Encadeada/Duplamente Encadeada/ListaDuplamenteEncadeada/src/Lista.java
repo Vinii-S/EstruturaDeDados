@@ -29,6 +29,82 @@ public class Lista {
     total++;
 }
 
+public void adicionarPosicao(int posicao, String nome) {
+    if (posicao < 0 || posicao > total) {
+       System.out.println("Posição inválida");
+       return;
+    }
+
+    if (posicao == 0) {
+        adicionarInicio(nome);
+    } else if (posicao == total) {
+        adicionarFim(nome);
+    } else {
+        Celula nova = new Celula(nome);
+        Celula aux = cabeca;
+        for (int i = 0; i < posicao - 1; i++) {
+            aux = aux.getProxima();
+        }
+        nova.setProxima(aux.getProxima());
+        nova.setAnterior(aux);
+        aux.getProxima().setAnterior(nova);
+        aux.setProxima(nova);
+        total++;
+    }
+}
+
+public void removerInicio(){
+    if(total == 0){
+        System.out.println("Sem elmentos para remover");
+        return;
+    }
+    if(total == 1){
+        cauda=null;
+    }
+
+    cabeca = cabeca.getProxima();
+    cabeca.setAnterior(null);
+    total--;
+
+
+}
+
+public void removerFinal(){
+    if(total == 0){
+        System.out.println("Sem elementos para remover");
+        return;
+    }
+    cauda = cauda.getAnterior();
+    cauda.setProxima(null);
+
+    total--;
+}
+
+public void removerPosicao(int posicao) {
+    if (posicao < 0 || posicao >= total) {
+        System.out.println("Posição inválida");
+    }
+    if (posicao == 0) {
+        cabeca = cabeca.getProxima();
+        cabeca.setAnterior(null);
+        if (total == 1) {
+            cauda = null;
+        }
+    }
+
+    else if (posicao == total) {
+        removerFinal();
+    } else {
+        Celula aux = cabeca;
+        for (int i = 0; i < posicao - 1; i++) {
+            aux = aux.getProxima();
+        }
+        aux.setProxima(aux.getProxima().getProxima());
+        aux.getProxima().setAnterior(aux);
+    }
+    total--;
+}
+
 public void imprimir(){
     if (total==0) {
         System.out.println("SEM ELEMENTOS");
@@ -37,7 +113,8 @@ public void imprimir(){
 
     Celula aux = this.cabeca;
     System.out.println("----------");
-    for(int i =0; i<total;i++){
+    
+     for(int i =0; i<total;i++){
         System.out.println(aux.getElemento());
         if (aux.getProxima()!=null) {
             aux = aux.getProxima();
@@ -46,5 +123,6 @@ public void imprimir(){
         }
         
     }
+    
 }
 }
