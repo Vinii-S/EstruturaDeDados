@@ -1,4 +1,4 @@
-package Ex1.Basica;
+package Ex1Pilha.Basica;
 
 public class Processo {
     private int pid;
@@ -25,5 +25,9 @@ public class Processo {
         this.conteudo = conteudo;
     }
 
+    @Override
+    public String toString() {
+        return "ID do processo: " + pid + "Conteúdo do processo: " + conteudo;
+    }
 
 }

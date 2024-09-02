@@ -1,22 +1,21 @@
-package Ex1.Estrutura;
-
+package Ex1Queue.Estrutura;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
-import Ex1.Basica.Processo;
+import Ex1Queue.Basica.Processo;
 
 public class Fila {
-
-    LinkedList<Processo> fila = new LinkedList<Processo>();
-    Stack<Processo> pilha = new Stack<Processo>();
+    
+    Queue<Processo> fila = new LinkedList<Processo>();
+     Stack<Processo> pilha = new Stack<Processo>();
 
     public void inserir(Processo proc){
-        fila.addLast(proc);
+        fila.add(proc);
     }
-
     public Object remover(){
         return fila.poll();
-}
+    }
 
     public boolean verifica(){
         return fila.isEmpty();
@@ -26,8 +25,9 @@ public class Fila {
         for(Processo p : fila){
             System.out.println("Id do processo " + p.getPid());
             System.out.println("Contéudo do processo " + p.getPid() + ": " + p.getConteudo());
-        }
+        }   
     }
+
     public void inverter(){
         while(!verifica()){
             pilha.add(fila.poll());
@@ -36,6 +36,7 @@ public class Fila {
         while(!pilha.isEmpty()){
             fila.add(pilha.pop());
     }
-}
+    
 
+}
 }

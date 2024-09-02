@@ -87,7 +87,9 @@ INDEX(idDevolucao)
 
 ALTER TABLE `biblioteca`.`usuario` ADD COLUMN `nomeUsuario` VARCHAR(50) NOT NULL AFTER `idUsuario`;
 ALTER TABLE `biblioteca`.`autor` add column `nomeAutor` varchar(50) not null;
-insert into usuario(nomeUsuario,matriculaUsuario,rgUsuario,cpfUsuario,telefoneUsuario,emailUsuario,enderecoUsuario) values ("Josinaldo Gomes","2020102","12345-09","123456789-00","(77)98812-8765","josi2020@gmail.com","Rua da Concordia, nº90,Centro,Parnaúba");
+
+insert into usuario(nomeUsuario,matriculaUsuario,rgUsuario,cpfUsuario,telefoneUsuario,emailUsuario,enderecoUsuario) 
+values ("Josinaldo Gomes","2020102","12345-09","123456789-00","(77)98812-8765","josi2020@gmail.com","Rua da Concordia, nº90,Centro,Parnaúba");
 
 INSERT INTO autor (nomeAutor)
 VALUES
@@ -101,10 +103,12 @@ INSERT INTO editora (nomeEditora, telefoneEditora, cidadeEditora, emailEditora) 
 
 ALTER TABLE `biblioteca`.`funcionario` CHANGE COLUMN `matricusculasuapFuncionario` `matriculasuapFuncionario` VARCHAR(45) NOT NULL ;
 
-INSERT INTO funcionario(matriculasuapFuncionario,nomeFuncionario,telefoneFuncionario,emailFuncionario,loginFuncionario,senhaFuncionario) values ("197886", "Juarez Rodrigues", "(75)98865-1121", "juajua@ifba.edu.br", "jua@ifba", "juju1010");
+INSERT INTO funcionario(matriculasuapFuncionario,nomeFuncionario,telefoneFuncionario,emailFuncionario,loginFuncionario,senhaFuncionario)
+values ("197886", "Juarez Rodrigues", "(75)98865-1121", "juajua@ifba.edu.br", "jua@ifba", "juju1010");
 
 ALTER TABLE `biblioteca`.`exemplar` 
 DROP FOREIGN KEY `fk_idExemplar_Reserva`;
+
 ALTER TABLE `biblioteca`.`exemplar` 
 DROP COLUMN `idReserva`,
 DROP INDEX `fk_idExemplar_Reserva` ;
