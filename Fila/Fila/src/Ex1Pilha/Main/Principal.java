@@ -20,8 +20,10 @@ public class Principal {
     p.empilhar(pro5);
   
     p.imprimir();
-    System.out.println("--------------");
+    System.out.println("-------------------------------");
     p.verificaTopo();
+    System.out.println("-------------------------------");
+    System.out.println("REMOVENDO PRIMEIRO ELEMENTO");
     p.desempilhar();
     p.imprimir();
     

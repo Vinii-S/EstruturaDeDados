@@ -12,12 +12,15 @@ public class Pilha {
     public void empilhar(Processo proc){
         pilha.push(proc);
     }
+
     public Object desempilhar(){
         return pilha.pop();
     }
+
     public void verificaTopo(){
         System.out.println("Topo da pilha: " + pilha.peek());
     }
+    
     public void imprimir(){
         for(Processo p : pilha){
             System.out.println("Id do processo " + p.getPid());

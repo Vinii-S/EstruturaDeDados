@@ -27,7 +27,7 @@ public class Processo {
 
     @Override
     public String toString() {
-        return "ID do processo: " + pid + "Conteúdo do processo: " + conteudo;
+        return "ID: " + pid + ", Conteúdo do processo: " + conteudo;
     }
 
 }
