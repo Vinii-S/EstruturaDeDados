@@ -5,10 +5,9 @@ public class Fibo {
     public static int seqFibo(int valor){
         if(valor<2){
             return 1;
+        }else{
+            return  seqFibo(valor -1) + seqFibo(valor-2);
         }
-
-        return  seqFibo(valor -1) + seqFibo(valor-2);
-       
     }
 
     public static void main(String[] args) {

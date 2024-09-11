@@ -6,10 +6,6 @@ public class Palindromo {
     String nome;
     String invertido;
     Stack<Character> Pilha = new Stack<>();
-    
-
-    public Palindromo() {
-    }
 
     public Palindromo(String nome) {
         this.nome = nome;
@@ -33,7 +29,7 @@ public class Palindromo {
         }
     }
     public static void main(String[] args) {
-        Palindromo palindromo = new Palindromo("radar");
+        Palindromo palindromo = new Palindromo("carro");
         palindromo.isPalindromo();
     }
 }
