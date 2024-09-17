@@ -31,5 +31,6 @@ public class Palindromo {
     public static void main(String[] args) {
         Palindromo palindromo = new Palindromo("carro");
         palindromo.isPalindromo();
+        
     }
 }
