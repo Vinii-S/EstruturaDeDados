@@ -62,4 +62,46 @@ public class Estrutura {
             inOrdem(no.getDireita());
         }
     }
+
+    public No valorMinimo(){
+        return valorMinimo(this.raiz);
+    }
+
+
+    public No valorMinimo(No no){
+        if(no.getEsquerda() != null){
+            no = valorMinimo(no.getEsquerda());
+        }
+        return no;
+    }
+
+    public No valorMaximo() {
+		
+		return valorMaximo(this.raiz);
+		
+	}
+	
+	private No valorMaximo(No no) {
+		
+		if(no.getDireita()!=null) {
+			
+			no = valorMaximo(no.getDireita());
+			
+		}
+		
+		return no;
+		
+	}
+
+    public No removeMinimo(){
+        return removeMinimo(valorMinimo());
+    }
+
+    private No removeMinimo(No minimo) {
+        if (minimo.getEsquerda() == null) {
+            return minimo.getDireita(); 
+        }
+        minimo.setEsquerda(removeMinimo(minimo.getEsquerda())); 
+        return minimo;
+    }
 }
