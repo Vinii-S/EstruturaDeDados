@@ -2,6 +2,8 @@
 public class Main {
        public static void main(String[] args) {
               Estrutura e = new Estrutura();
+             No n = new No() ;
+             No n2 = new No();
 
               e.inserir(4);
               e.inserir(2);
@@ -19,9 +21,12 @@ public class Main {
               System.out.println();
               e.inOrdem();
 
-              System.out.println("Valor mínimo: " + e.valorMinimo());
+              n = e.valorMinimo();
 
-              System.out.println("Valor máximo: " + e.valorMaximo());
+              System.out.println("Valor mínimo: " +n.getValor());
+              n2 = e.valorMaximo();
+  
+              System.out.println("Valor máximo: " + n2.getValor());
 
               System.out.println();
               e.removeMinimo();
