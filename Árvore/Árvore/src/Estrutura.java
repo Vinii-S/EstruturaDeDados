@@ -83,15 +83,32 @@ public class Estrutura {
 	
 	private No valorMaximo(No no) {
 		
-		if(no.getDireita()!=null) {
-			
-			no = valorMaximo(no.getDireita());
-			
+		if(no.getDireita()!=null) {		
+			no = valorMaximo(no.getDireita());	
 		}
 		
 		return no;
 		
 	}
+
+        public No remover(int valor){
+            return remover(this.raiz,valor);
+        }
+
+        public No remover(No no, int valor) throws Exception{
+            if(this.raiz == null){
+                throw new Exception("Arvore vazia");
+            }
+            if(valor < no.getValor()){
+                no.setEsquerda(remover(no.getEsquerda(),valor));
+            }else if(valor>no.getValor()){
+                no.setDireita(remover(no.getDireita(),valor));
+            }else{
+                no = (no.getEsquerda() != null) ? no.getEsquerda() : no.getDireita();
+            }
+            return no;
+        }
+
 
     public No removeMinimo(){
         return removeMinimo(valorMinimo());
