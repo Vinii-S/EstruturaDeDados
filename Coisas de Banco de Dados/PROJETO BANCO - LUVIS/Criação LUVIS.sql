@@ -32,7 +32,8 @@ create table Funcionario(
 
 create table Reserva(
 	id_Reserva int not null primary key auto_increment,
-    dataHora_Reserva datetime not null,
+    data_Reserva date not null,
+    hora_Reserva time not null,
     quantidadePessoas_Reserva int not null,
     id_Cliente int not null,
     id_Mesa int not null,
@@ -67,7 +68,6 @@ create table Item_Pedido(
     foreign key (id_Pedido) references Pedido(id_Pedido),
     Primary key (id_Item, id_Pedido)
 );
-
 
 INSERT INTO cliente (nome_Cliente,telefone_Cliente,email_Cliente)
 VALUES
@@ -111,11 +111,11 @@ VALUES
 (5,6),
 (6,10);
 
-INSERT INTO reserva (dataHora_reserva,quantidadePessoas_reserva,id_cliente,id_mesa)
+INSERT INTO reserva (data_reserva,hora_Reserva,quantidadePessoas_reserva,id_cliente,id_mesa)
 VALUES
- ("2024-09-11 15:00:00",3,1,4),
-("2024-10-20 20:30:00",5,2,5),
-("2024-11-18 12:00:00",10,3,6);
+ ("2024-09-11","13:00:00",3,1,4),
+("2024-09-14","14:30:00",2,3,1),
+("2024-11-09","15:00:00",1,4,2);
 
 
 INSERT INTO pedido (dataHora_pedido,total_pedido,id_cliente,id_mesa,id_funcionario)
@@ -125,9 +125,13 @@ VALUES
 ("2024-10-15 19:15:00",512.00, 4, 1, 4),
 ("2024-10-15 20:30:00",350.00, 1, 2, 1);
 
+INSERT INTO pedido (dataHora_pedido,total_pedido,id_cliente,id_mesa,id_funcionario)
+VALUES ("2024-10-15 12:30:00",100.00, 7, 6, 4);
+
+
 INSERT INTO item_pedido (id_item,id_pedido,quantidade_item_pedido)
 VALUES
-(1,2,2),
-(2,1,2),
-(3,3,4),
-(4,4,5);
+(12,2,2),
+(22,1,2),
+(32,3,4),
+(19,4,5);

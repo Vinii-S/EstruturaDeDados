@@ -1,10 +1,8 @@
-SELECT * FROM luvis.cliente;
-
--- Dado um funcionário, trazer todos os pedidos dele
+-- Dado um funcionário, trazer todos os pedidos dele.
 SELECT f.nome_Funcionario as NOME_FUNCIONARIO , P.id_pedido as ID_PEDIDO
 from Pedido P,Funcionario f 
 where f.id_funcionario = P.id_funcionario and
-f.id_funcionario = 4;
+f.id_funcionario = 1;
 
 -- Listar os pedidos com o número de itens em cada pedido. SUBQUERY COMO COLUNA:
 SELECT p.id_Pedido, p.total_Pedido,
@@ -17,13 +15,30 @@ SELECT I.nome_Item as ITEM, C.nome_Cliente as CLIENTE, C.id_cliente FROM Item I
 JOIN Item_Pedido ON I.id_Item = Item_Pedido.id_Item
 JOIN Pedido P ON Item_Pedido.id_Pedido = P.id_Pedido
 JOIN Cliente C ON P.id_Cliente = C.id_Cliente
-WHERE C.id_Cliente = 1;
+WHERE C.id_Cliente = 7;
 
--- Listar as mesas que foram reservadas para grupos com mais de X pessoas. SUBQUERY COMO FILTRO:
-SELECT C.nome_Cliente as NOME, M.id_mesa as ID_MESA, M.numero_mesa as NUMERO_MESA  FROM Cliente C
-WHERE id_Cliente IN (SELECT R.id_Cliente
-	FROM Reserva R WHERE R.id_Mesa IN (SELECT M.id_Mesa FROM Mesa M
-    WHERE id_Mesa IN (SELECT M.id_Mesa FROM Reserva
-WHERE quantidadePessoas_Reserva = 10 )
-	)
-);
+-- Mesas Ocupadas em um Horário Específico até 2 horas depois. SUBQUERY COMO FILTRO:
+SELECT C.nome_Cliente FROM Cliente C
+WHERE C.id_Cliente IN (SELECT R.id_Cliente FROM Reserva R
+	WHERE data_Reserva = '2024-11-09');
+                     
+-- Procedure com Parâmetros. Listar Pedidos e Total de Cada um.
+DELIMITER $$
+CREATE PROCEDURE ListarPedidosTotais()
+BEGIN
+    SELECT id_Pedido, total_Pedido 
+    FROM Pedido;
+END $$
+DELIMITER ;
+
+-- Procedure com Parâmetros. Reservas com número mínimo de pessoas.
+DELIMITER $$
+CREATE PROCEDURE ReservasPorNumeroPessoas(IN minimo_pessoas INT)
+BEGIN
+    SELECT * 
+    FROM Reserva 
+    WHERE quantidadePessoas_Reserva = minimo_pessoas;
+END $$
+DELIMITER ;
+set @pessoas = 2;
+call ReservasPorNumeroPessoas(@pessoas)
