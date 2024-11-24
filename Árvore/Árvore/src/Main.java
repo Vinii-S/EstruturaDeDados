@@ -12,6 +12,8 @@ public class Main {
               e.inserir(6);
               e.inserir(5);
               e.inserir(7);
+              e.inserir(8);
+              e.inserir(-1);
 
               e.preOrdem();
 
@@ -31,6 +33,9 @@ public class Main {
               System.out.println();
               e.removeMinimo();
               e.inOrdem();
+              System.out.println();
+
+              System.out.println("A altura da arvore é: " + e.altura());
               
 
        }
