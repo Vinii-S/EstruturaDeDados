@@ -110,16 +110,20 @@ public class Estrutura {
         }
 
 
-    public No removeMinimo(){
+    public No removeMinimo() throws Exception{
         return removeMinimo(valorMinimo());
     }
 
-    private No removeMinimo(No minimo) {
-        if (minimo.getEsquerda() == null) {
-            return minimo.getDireita(); 
+    private No removeMinimo(No no) throws Exception {
+        if (this.raiz == null) {
+            throw new Exception("Arvore vaziA");
+        }else if(no.getEsquerda()!=null){
+            no.setEsquerda(removeMinimo(no.getEsquerda()));
+            return no;
+
+        }else{
+            return no.getDireita();
         }
-        minimo.setEsquerda(removeMinimo(minimo.getEsquerda())); 
-        return minimo;
     }
     
     public int altura(){
@@ -127,7 +131,7 @@ public class Estrutura {
     }
     private int altura(No no){
         if(no == null){
-            return 0;
+            return -1;
         }else{
             int alturaEsquerda = altura(no.getEsquerda());
             int alturaDireita = altura(no.getDireita());
