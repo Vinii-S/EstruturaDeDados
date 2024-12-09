@@ -11,25 +11,25 @@ public class Estrutura {
     private No balancear(No no) {
         int fatorB = fatorBalanceamento(no);
     
-        // Rotação à direita (caso Esquerda-Esquerda)
+        // Rotação à esquerda (caso Esquerda-Esquerda)
         if (fatorB > 1 && fatorBalanceamento(no.getEsquerda()) >= 0) {
-            return rotacaoDireita(no); // Chamando o método de rotação já existente
-        }
-    
-        // Rotação à esquerda (caso Direita-Direita)
-        if (fatorB < -1 && fatorBalanceamento(no.getDireita()) <= 0) {
             return rotacaoEsquerda(no); // Chamando o método de rotação já existente
         }
     
-        // Rotação dupla à direita (caso Esquerda-Direita)
+        // Rotação à direita (caso Direita-Direita)
+        if (fatorB < -1 && fatorBalanceamento(no.getDireita()) <= 0) {
+            return rotacaoDireita(no); // Chamando o método de rotação já existente
+        }
+    
+        // Rotação dupla à esquerda (caso Esquerda-Direita)
         if (fatorB > 1 && fatorBalanceamento(no.getEsquerda()) < 0) {
-            rotacaoDuplaDireita(no); // Usando o método de rotação dupla que você criou
+            rotacaoDuplaEsquerda(no); // Usando o método de rotação dupla que você criou
             return no;
         }
     
-        // Rotação dupla à esquerda (caso Direita-Esquerda)
+        // Rotação dupla à direita (caso Direita-Esquerda)
         if (fatorB < -1 && fatorBalanceamento(no.getDireita()) > 0) {
-            rotacaoDuplaEsquerda(no); // Usando o método de rotação dupla que você criou
+            rotacaoDuplaDireita(no); // Usando o método de rotação dupla que você criou
             return no;
         }
     
