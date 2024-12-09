@@ -1,6 +1,6 @@
 
 public class Main {
-       public static void main(String[] args) {
+       public static void main(String[] args) throws Exception {
               Estrutura e = new Estrutura();
              No n = new No() ;
              No n2 = new No();
