@@ -5,7 +5,7 @@ public class Estrutura {
         if (no == null) {
             return 0;
         }
-        return altura(no.getEsquerda()) - altura(no.getDireita());
+        return altura(no.getDireita()) - altura(no.getEsquerda());
     }
     
     private No balancear(No no) {
