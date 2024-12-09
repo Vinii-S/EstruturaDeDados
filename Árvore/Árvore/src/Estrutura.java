@@ -121,13 +121,13 @@ public class Estrutura {
         minimo.setEsquerda(removeMinimo(minimo.getEsquerda())); 
         return minimo;
     }
-    
+
     public int altura(){
         return altura(this.raiz);
     }
     private int altura(No no){
         if(no == null){
-            return 0;
+            return -1;
         }else{
             int alturaEsquerda = altura(no.getEsquerda());
             int alturaDireita = altura(no.getDireita());
