@@ -125,7 +125,7 @@ public class Estrutura {
             return no.getDireita();
         }
     }
-    
+
     public int altura(){
         return altura(this.raiz);
     }
