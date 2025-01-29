@@ -17,8 +17,8 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int cliente_id;
 
     private String nome;
     private String cpf;
@@ -28,24 +28,20 @@ public class Cliente implements Serializable {
     private Endereco endereco;
 
     @ManyToOne
-    @JoinColumn(name="categoria_id", nullable=false)
+    @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 
     public Cliente() {
     }
 
-    
-
     public Cliente(int id, String nome, String cpf, String rg, Endereco endereco, Categoria categoria) {
-        this.id = id;
+        this.cliente_id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.endereco = endereco;
         this.categoria = categoria;
     }
-
-
 
     public Endereco getEndereco() {
         return endereco;
@@ -60,11 +56,11 @@ public class Cliente implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return cliente_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.cliente_id = id;
     }
 
     public String getNome() {
@@ -101,8 +97,9 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", categoria=" + categoria.getDescricao()
+        return "Cliente [id=" + cliente_id + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", categoria="
+                + categoria.getDescricao()
                 + "]";
     }
-    
+
 }

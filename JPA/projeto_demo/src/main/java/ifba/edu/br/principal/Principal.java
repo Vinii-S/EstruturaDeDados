@@ -14,67 +14,65 @@ public class Principal {
   public static void main(String[] args) {
 
     EntityManager em = GetEntityManager.getConnectionJpa();
-    /*
-     * Categoria C = new Categoria("Categoria Teste");
-     * Categoria C2 = new Categoria("teste 2");
-     */
-
-    /*
-     * em.getTransaction().begin();
-     * em.persist(C);
-     * em.persist(C2);
-     * em.getTransaction().commit();
-     */
-
-    Cliente c = new Cliente();
-    /*
-     * c.setNome("Jorge");
-     * c.setRg("123456");
-     * c.setCpf("12345678911");
-     * c.setCategoria(em.find(Categoria.class, 1));
-     * 
-     * 
-     * em.getTransaction().begin();
-     * em.persist(c);
-     * em.getTransaction().commit();
-     */
+    
+     Categoria C = new Categoria("Categoria Teste");
+     Categoria C2 = new Categoria("teste 2");
+    
+     
+     //em.getTransaction().begin();
+    // em.persist(C);
+    // em.persist(C2);
+    // em.getTransaction().commit();
+     
 
     Endereco e = new Endereco();
+     e.setRua("Rua da Alegria");
+     e.setBairro("Rodoviario");
+     e.setCep("48700-000");
+     e.setCidade("Itapetinga");
+     e.setEstado("Bahia");
+     e.setNumero("22");
+     
+    // em.getTransaction().begin();
+    //em.persist(e);
+    //em.getTransaction().commit();
 
-    e.setRua("Rua da Paz");
-    e.setBairro("Centro");
-    e.setCep("48300-000");
-    e.setCidade("Itapetinga");
-    e.setEstado("Bahia");
-    e.setNumero("10");
+    Cliente c = new Cliente();
+    
+      c.setNome("Matheus");
+      c.setRg("9999");
+      c.setCpf("98765432199");
+      c.setCategoria(em.find(Categoria.class, 2));
+      c.setEndereco(em.find(Endereco.class, 3));
+      
+    
+     // em.getTransaction().begin();
+     // em.persist(c);
+     // em.getTransaction().commit();
+     
 
     /*
-     * em.getTransaction().begin();
-     * em.persist(e);
-     * em.getTransaction().commit();
+     * c = em.find(Cliente.class, 2);
+     * c.setEndereco(e);
      */
-
-    c = em.find(Cliente.class, 2);
-    c.setEndereco(e);
 
     Produto p = new Produto();
     p.setDescricao("Coca Cola");
     p.setEstoque(10);
     p.setValor(5.0);
+     
+   Venda v = new Venda();
+   // v.setDescricao("Venda de duas Coca Cola");
+    //Associar os produtos à venda
+  // v.getProdutos().add(p);
+    // Associar a venda aos produtos
+  // p.getVendas().add(v);
+   //v.setCliente(em.find(Cliente.class, 2));
 
-    Venda v = new Venda();
-    v.setDescricao("Venda de Coca Cola");
-      // Associar os produtos à venda
-    v.getProdutos().add(p);
-      // Associar a venda aos produtos
-    p.getVendas().add(v);
-
-
-    em.getTransaction().begin();
-    em.persist(p);
-    em.persist(v);
-    em.getTransaction().commit();
-
+    //em.getTransaction().begin();
+    //em.persist(p);
+    //em.getTransaction().commit();
+    
   }
 
 }

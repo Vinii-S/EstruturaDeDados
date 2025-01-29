@@ -16,7 +16,7 @@ public class Categoria implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int categoria_id;
     
     private String descricao;
 
@@ -24,10 +24,10 @@ public class Categoria implements Serializable{
     private List<Cliente> cliente;
 
     public int getId() {
-        return id;
+        return categoria_id;
     }
     public void setId(int id) {
-        this.id = id;
+        this.categoria_id = id;
     }
     public String getDescricao() {
         return descricao;
@@ -43,7 +43,7 @@ public class Categoria implements Serializable{
     }
     @Override
     public String toString() {
-        return "Categoria [id=" + id + ", descricao=" + descricao + "]";
+        return "Categoria [id=" + categoria_id + ", descricao=" + descricao + "]";
     }
 
 
