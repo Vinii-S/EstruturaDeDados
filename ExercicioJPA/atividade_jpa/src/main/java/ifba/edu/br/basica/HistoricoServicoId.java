@@ -12,7 +12,9 @@ public class HistoricoServicoId implements Serializable {
     private int servico_id;
     private int veiculo_id;
 
-    public HistoricoServicoId() {}
+    public HistoricoServicoId() {
+        
+    }
 
     public HistoricoServicoId(int servico_id, int veiculo_id) {
         this.servico_id = servico_id;

@@ -22,7 +22,9 @@ public class HistoricoServico implements Serializable {
     @JoinColumn(name = "funcionario_id", nullable = false)
     private Funcionario funcionario;
 
-    public HistoricoServico() {}
+    public HistoricoServico() {
+        this.id = new HistoricoServicoId(); 
+    }
 
     public HistoricoServico(Servico servico, Veiculo veiculo, Funcionario funcionario) {
         this.id = new HistoricoServicoId(servico.getServico_id(), veiculo.getVeiculo_id());
@@ -37,6 +39,13 @@ public class HistoricoServico implements Serializable {
 
     public void setId(HistoricoServicoId id) {
         this.id = id;
+        if (id != null) {
+            this.servico = new Servico();
+            this.servico.setServico_id(id.getServico_id());
+
+            this.veiculo = new Veiculo();
+            this.veiculo.setVeiculo_id(id.getVeiculo_id());
+        }
     }
 
     public Servico getServico() {
