@@ -20,8 +20,9 @@ public class Cliente implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
-   @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
-    private List<Veiculo> veiculo;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) 
+    private List<Veiculo> veiculos; 
 
     private String nome_cliente;
     private String email_cliente;
@@ -35,6 +36,14 @@ public class Cliente implements Serializable {
         this.nome_cliente = nome_cliente;
         this.email_cliente = email_cliente;
         this.cpf_cliente = cpf_cliente;
+    }
+
+    public List<Veiculo> getVeiculos() {
+        return veiculos;
+    }
+
+    public void setVeiculos(List<Veiculo> veiculos) {
+        this.veiculos = veiculos;
     }
 
     public static long getSerialversionuid() {

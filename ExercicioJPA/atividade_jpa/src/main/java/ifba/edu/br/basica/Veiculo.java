@@ -5,7 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.JoinColumn;
+import java.util.List;
+import jakarta.persistence.CascadeType;
 
 @Entity
 public class Veiculo implements Serializable {
@@ -18,6 +21,9 @@ public class Veiculo implements Serializable {
     private String modelo_veiculo;
     private String montadora_veiculo;
 
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
+    private List<HistoricoServico> historicoServicos;
+    
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
